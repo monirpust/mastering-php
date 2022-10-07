@@ -55,9 +55,11 @@ foreach($languages as $name => $language)
     echo "<br><br>". $name."<br>";
     foreach($language as $feature => $detail)
     {
-        echo $feature . " : \n\n";
+        
         if (is_array($detail))
          {
+            
+            echo $feature . " : <br>";
             foreach ($detail as $k => $v)
             {
                 echo "\t" .$k . " = " . $v . "<br>";
