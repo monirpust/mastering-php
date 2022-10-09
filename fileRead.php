@@ -17,6 +17,6 @@ while(!feof($handle))
 }
 
 //closing the file
-echo fclose($handle);
+fclose($handle);
 
 ?>
