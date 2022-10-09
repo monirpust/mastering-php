@@ -1,0 +1,4 @@
+hello from  text file first line
+Here is the second line
+Whoops! we need third line
+what if write fourth line
