@@ -9,7 +9,7 @@
 <body>
     
     <?php
-    if($_POST["pass"]=="Hello"){?>
+    if($_REQUEST['pass']=="Hello"){?>
     <h1>Welcome to webapp</h1>
     <?php } else{ ?>
 
