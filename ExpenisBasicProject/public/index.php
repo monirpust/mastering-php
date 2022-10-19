@@ -8,15 +8,10 @@ define('APP_PATH', $roots . 'app'. DIRECTORY_SEPARATOR);
 define('FILES_PATH', $roots . 'transaction_files'. DIRECTORY_SEPARATOR);
 define('VIEWS_PATH', $roots . 'views'. DIRECTORY_SEPARATOR);
 
+require APP_PATH."App.php";
 
-echo $roots;
-echo "<br>";
-echo "initial setup for app is done";
-echo "<br>";
-echo FILES_PATH;
-echo "<br>";
-echo VIEWS_PATH;
-echo "<br>";
- echo APP_PATH;
+$files = getTransactionFiles(FILES_PATH);
+
+var_dump($files);
 
 ?>
