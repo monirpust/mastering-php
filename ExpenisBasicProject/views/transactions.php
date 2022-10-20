@@ -31,21 +31,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>data 1</td>
-                    <td>data 2</td>
-                    <td>data 3</td>
-                </tr>
-                <tr>
-                    <td>data 1</td>
-                    <td>data 2</td>
-                    <td>data 3</td>
-                </tr>
-                <tr>
-                    <td>data 1</td>
-                    <td>data 2</td>
-                    <td>data 3</td>
-                </tr>
+                <?php if(! empty($transactions)){ ?>
+                    <?php foreach($transactions as $transaction){ ?>
+                        <tr>
+                            <td><?= $transaction['date']; ?></td>
+                            <td><?= $transaction['chekNumber']; ?></td>
+                            <td><?= $transaction['description']; ?></td>
+                            <td><?= $transaction['amount']; ?></td>
+                        </tr>
+                    <?php } ?>
+                <?php } ?>
             </tbody>
             <tfoot>
                 <tr>

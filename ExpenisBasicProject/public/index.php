@@ -19,8 +19,6 @@ foreach($files as $file)
     $transactions = array_merge(getTransaction($file), $transactions);
 }
 
-print_r($transactions);
-
-var_dump($files);
+require VIEWS_PATH . 'transactions.php';
 
 ?>
