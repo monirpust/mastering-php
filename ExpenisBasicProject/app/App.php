@@ -42,7 +42,7 @@ function getTransaction(string $fileName, ?callable $transactionHandler = null):
         {
             $transactions = $transactionHandler($fileTransactions);
         }
-        
+
         $allTransactions[] = $transactions;
     }
 
@@ -61,4 +61,24 @@ function extractTransactions(array $transactionRow): array
         'description' => $description,
         'amount' => $amount,
     ];
+}
+
+function calculateTotals(array $transactions): array
+{
+    $totals = ['totalIncome'=> 0, 'totalExpense'=>0, 'netTotal'=>0];
+
+    foreach($transactions as $transaction)
+    {
+        if($transaction['amount'] >= 0)
+        {
+            $totals['totalIncome'] += $transaction['amount'];
+        }
+        else
+        {
+            $totals['totalExpense'] += $transaction['amount'];
+        }
+    }
+    $totals['netTotal'] = $totals['totalIncome'] + $totals['totalExpense'];
+
+    return $totals;
 }
