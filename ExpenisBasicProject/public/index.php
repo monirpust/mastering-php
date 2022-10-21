@@ -16,7 +16,7 @@ $transactions = [];
 
 foreach($files as $file)
 {
-    $transactions = array_merge(getTransaction($file), $transactions);
+    $transactions = array_merge(getTransaction($file, 'extractTransactions'), $transactions);
 }
 
 require VIEWS_PATH . 'transactions.php';

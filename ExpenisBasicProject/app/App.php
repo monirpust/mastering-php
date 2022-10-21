@@ -22,7 +22,7 @@ function getTransactionFiles(string $dirPath):array
     
 }
 
-function getTransaction(string $fileName): array
+function getTransaction(string $fileName, ?callable $transactionHandler = null): array
 {
     if(! file_exists($fileName))
     {
@@ -38,7 +38,12 @@ function getTransaction(string $fileName): array
 
     while(($fileTransactions = fgetcsv($file)) !== false)
     {
-        $allTransactions[] = extractTransactions($fileTransactions);
+        if($transactionHandler !== null)
+        {
+            $transactions = $transactionHandler($fileTransactions);
+        }
+        
+        $allTransactions[] = $transactions;
     }
 
     return $allTransactions;
