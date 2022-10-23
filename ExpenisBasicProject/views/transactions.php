@@ -37,7 +37,9 @@
                             <td><?= formatDate($transaction['date']); ?></td>
                             <td><?= $transaction['chekNumber']; ?></td>
                             <td><?= $transaction['description']; ?></td>
-                            <td><?= formatDollarAmount($transaction['amount']); ?></td>
+                            <td <?= ($transaction['amount']>0 ? 'style=color:green':'style=color:red'); ?> >
+                                <?= formatDollarAmount($transaction['amount']); ?>
+                            </td>
                         </tr>
                     <?php } ?>
                 <?php } ?>
@@ -53,7 +55,9 @@
                 </tr>
                 <tr>
                     <th colspan="3">Net Total:</th>
-                    <td><?= formatDollarAmount($totals['netTotal']) ?? 0; ?></td>
+                    <td <?= ($totals['netTotal']>0 ? 'style=color:green':'style=color:red'); ?>>
+                        <?= formatDollarAmount($totals['netTotal']) ?? 0; ?>
+                    </td>
                 </tr>
             </tfoot>
         </table>
